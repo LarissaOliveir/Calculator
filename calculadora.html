@@ -1,0 +1,102 @@
+<script>
+
+    function calculadora (){
+        const operacao = Number(prompt('Escolha uma operacao:\n 1 - Soma (+) \n 2 - Subtração (-) \n 3 - Multiplicação (*) \n 4 - Divisão Real (/) \n 5 - Divisão Inteira (%)\n 6 - Potenciação (**) ')); 
+        //imprimir o valor
+        //console.log(operacao);
+
+        //verificar se a operacao é valida
+        if(!operacao || operacao >= 7){
+            alert('Erro - operaçõa inválida! ')
+            calculadora();
+        }else{
+            let n1 = Number(prompt('Insira o primeiro valor: '));
+            let n2 = Number(prompt('Insira o segundo valor: ')) ;
+            let resultado;
+
+            //verificacao das variaveis
+            if(!n1 || !n2){
+                alert('Erro - parametros inválidos! ')
+                calculadora();
+            }else{
+                //declarar fumcao
+                function soma(){
+                    resultado = n1 + n2;
+                    alert(`${n1} + ${n2} = ${resultado}`);
+                    //perguntar se quer uma nova operacao logo apos o resultado da operacao anterior
+                    novaOperacao();
+                }
+
+                function subtracao(){
+                    resultado = n1 - n2;
+                    alert(`${n1} - ${n2} = ${resultado}`);
+                    //perguntar se quer uma nova operacao logo apos o resultado da operacao anterior
+                    novaOperacao();
+                }
+
+                function multiplicacao(){
+                    resultado = n1 * n2;
+                    alert(`${n1} * ${n2} = ${resultado}`);
+                    //perguntar se quer uma nova operacao logo apos o resultado da operacao anterior
+                    novaOperacao();
+                }
+
+                function divisaoReal(){
+                    resultado = n1 / n2;
+                    alert(`${n1} / ${n2} = ${resultado}`);
+                    //perguntar se quer uma nova operacao logo apos o resultado da operacao anterior
+                    novaOperacao();
+                }
+
+                function divisaoInteira(){
+                    resultado = n1 % n2;
+                    alert(`O resto da divisao entre ${n1} e ${n2} é igual a ${resultado} `);
+                    //perguntar se quer uma nova operacao logo apos o resultado da operacao anterior
+                    novaOperacao();
+                }
+
+                function potenciacao(){
+                    resultado = n1 ** n2;
+                    alert(` ${n1} elevado a ${n2} é igual a ${resultado} `);
+                    //perguntar se quer uma nova operacao logo apos o resultado da operacao anterior
+                    novaOperacao();
+                }
+
+                //para nao precisar fazer um refresh na pagina
+                function novaOperacao(){
+                    let opcao = prompt('Voce deseja fazer outra operação? \n 1 - Sim \n 2 - Não');
+                    
+                    if (opcao == 1){
+                        calculadora();
+                    }else if(opcao == 2){
+                        alert('Adeus')
+                    }else{
+                        alert('Opção inválida')
+                        novaOperacao();
+                    }
+                }
+            }
+
+            //criando verificador de operacao
+            //pode usar switch case tbm
+            if(operacao == 1){
+                soma();
+            }else if(operacao == 2){
+                subtracao();
+            }else if(operacao == 3){
+                multiplicacao();
+            }else if(operacao == 4){
+                divisaoReal();
+            }else if(operacao == 5){
+                divisaoInteira();
+            }else if(operacao == 6){
+                potenciacao();
+            }
+        }  
+    }
+
+
+    calculadora();
+
+
+</script>
